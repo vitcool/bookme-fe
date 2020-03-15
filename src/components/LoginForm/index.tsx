@@ -1,25 +1,34 @@
 import React, { FunctionComponent, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 
 import styles from './index.module.scss';
+import { LOGIN_REQUEST } from 'redux/modules/auth/actions';
 
 const LoginForm: FunctionComponent = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleButtonClick = () => {
-    console.log('Button is clicked');
-  }
+    dispatch(LOGIN_REQUEST({ email, password }));
+  };
 
   return (
     <div className={styles.formWrapper}>
-      <Input value={email} onChange={setEmail} />
-      <Input value={password} onChange={setPassword} />
-      <Button onClick={handleButtonClick}>Text</Button>
+      <h4 className={styles.formTitle}>Log in</h4>
+      <Input value={email} onChange={setEmail} label="Email" />
+      <Input
+        value={password}
+        onChange={setPassword}
+        label="Password"
+        type="password"
+      />
+      <Button onClick={handleButtonClick}>Log in</Button>
     </div>
-  )
+  );
 };
 
 export default LoginForm;

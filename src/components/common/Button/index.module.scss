@@ -1,6 +1,19 @@
+@import '../../../assets/scss/variables';
+
 .button {
-  background-color: green;
+  margin-top: 10px;
+  background-color: $denim;
   border-radius: 10px;
   width: 100%;
   height: 30px;
+  height: 50px;
+  color: $vista-white;
+  cursor: pointer;
+  border: 1px solid $denim;
+
+  &:hover {
+    background-color: $vista-white;
+    color: $denim;
+    border: 1px solid $denim;
+  }
 }

@@ -9,7 +9,7 @@ const fetchPostsData = () => getRequest('/posts');
 function* fetchPostsRequestWorker(): SagaIterator {
   try {
     const response = yield call(fetchPostsData);
-    if (response.ok) {
+    if (response && response.ok) {
       const data = yield call([response, response.json]);
       yield put(fetchPostsSuccess(data));
     } else {
