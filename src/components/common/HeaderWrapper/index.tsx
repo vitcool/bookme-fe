@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import { NavLink } from 'react-router-dom';
-import { HOME, POSTS, ABOUT } from 'constants/routes';
+import { HOME, POSTS, ABOUT, LOGIN } from 'constants/routes';
 
 import { IProps } from './interfaces';
 import styles from './HeaderWrapper.module.scss';
@@ -14,6 +14,9 @@ const HeaderWrapper: FunctionComponent<IProps> = (props: IProps) => {
       <div className={styles.menuWrapper}>
         <NavLink to={HOME} className={styles.menuItem} activeClassName={styles.activeMenuItem} exact={true}>
           Home
+        </NavLink>
+        <NavLink to={LOGIN} className={styles.menuItem} activeClassName={styles.activeMenuItem}>
+          Login
         </NavLink>
         <NavLink to={POSTS} className={styles.menuItem} activeClassName={styles.activeMenuItem}>
           Posts

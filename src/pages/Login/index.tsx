@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import HeaderWrapper from 'components/common/HeaderWrapper';
 
-const Home: FunctionComponent = () => {
+import HeaderWrapper from 'components/common/HeaderWrapper';
+import LoginForm from 'components/LoginForm';
+
+const Login: FunctionComponent = () => {
   return (
     <HeaderWrapper>
-      <div>
-        Please, login or sign up
-      </div>
+      <LoginForm />
     </HeaderWrapper>
-  );
+  )
 };
 
-export default Home;
+export default Login;
