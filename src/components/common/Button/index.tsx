@@ -1,9 +1,8 @@
-import React, {
-  FunctionComponent,
-  MouseEvent,
-} from 'react';
+import React, { FunctionComponent, MouseEvent } from 'react';
 
 import { IProps } from './interfaces';
+
+import styles from './index.module.scss';
 
 const Button: FunctionComponent<IProps> = (props: IProps) => {
   const { onClick, children } = props;
@@ -12,7 +11,11 @@ const Button: FunctionComponent<IProps> = (props: IProps) => {
     onClick();
   };
 
-  return <button onClick={handleClick}>{children}</button>;
+  return (
+    <button onClick={handleClick} className={styles.button}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;
