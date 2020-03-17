@@ -7,10 +7,9 @@ import {
   LOGIN_REQUEST,
   LOGIN_REQUEST_SUCCESS,
   LOGIN_REQUEST_FAILED,
+  LOGOUT_REQUEST_FAILED,
+  LOGOUT_REQUEST,
 } from './actions';
-
-import { ILoginPayload } from './interfaces';
-import { Action } from 'redux';
 
 const loginApiRequest = (params: object) => postRequest('/users/login', params);
 
@@ -31,6 +30,16 @@ function* loginRequestWorker({
   }
 }
 
+function* logoutRequestWorker(): SagaIterator {
+  try {
+    // TOD add logout when it will be possible via API
+    console.log("LOGOUT REQUEST");
+  } catch (e) {
+    yield put(LOGOUT_REQUEST_FAILED(e.toString()));
+  }
+}
+
 export default function* root(): SagaIterator {
   yield takeEvery(LOGIN_REQUEST, loginRequestWorker);
+  yield takeEvery(LOGOUT_REQUEST, logoutRequestWorker);
 }
