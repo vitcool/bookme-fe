@@ -32,7 +32,7 @@ const LoginForm: FunctionComponent = () => {
         label="Password"
         type="password"
       />
-      <Button onClick={handleButtonClick} disabled={isLoginPending}>
+      <Button onClick={handleButtonClick} disabled={isLoginPending} pending={isLoginPending}>
         Log in
       </Button>
       {loginError && (
