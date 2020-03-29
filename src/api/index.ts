@@ -1,4 +1,7 @@
-const API_URL = 'http://localhost:3000';
+import { getUserToken } from "redux/modules/auth/selectors";
+import config from 'redux/config';
+
+const API_URL = 'http://192.168.1.141:3000';
 
 export const getRequest = (url: string) => {
   const URL = `${API_URL}${url}`;
@@ -11,7 +14,7 @@ export const getRequest = (url: string) => {
   });
 };
 
-export const postRequest = (url: string, params: any) => {
+export const postRequest = (url: string, params?: any) => {
   const URL = `${API_URL}${url}`;
 
   return fetch(URL, {
@@ -19,6 +22,22 @@ export const postRequest = (url: string, params: any) => {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
+    },
+    body: JSON.stringify(params),
+  });
+};
+
+export const postRequestWithToken = (url: string, params?: any) => {
+  const URL = `${API_URL}${url}`;
+  
+  const token = getUserToken(config.store.getState());
+
+  return fetch(URL, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+      'Authorization': `Bearer ${token}`,
     },
     body: JSON.stringify(params),
   });

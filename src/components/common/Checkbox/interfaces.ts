@@ -1,5 +1,5 @@
 export interface IProps {
-  value: string;
+  checked: boolean;
   onChange: Function;
   label?: string;
   type?: string;

@@ -14,5 +14,15 @@
     &:focus {
       border-color: $denim;
     }
+
+    &.error {
+      border-color: $salmon;
+    }
   }
+}
+
+.error {
+  font-size: 12px;
+  color: $salmon;
+  margin-top: 5px;
 }

@@ -1,15 +1,15 @@
 import React, { FunctionComponent } from 'react';
 
-import LoginForm from 'components/LoginForm';
+import SignUpForm from 'components/SignUpForm';
 
 import styles from './index.module.scss';
 
-const Login: FunctionComponent = () => {
+const SignUp: FunctionComponent = () => {
   return (
     <div className={styles.wrapper}>
-      <LoginForm />
+      <SignUpForm />
     </div>
-  )
+  );
 };
 
-export default Login;
+export default SignUp;

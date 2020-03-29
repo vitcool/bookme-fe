@@ -3,6 +3,8 @@ export interface IState {
   loginError: string;
   token: string;
   isLogoutPending: boolean;
+  signupError: string;
+  isSignUpPending: boolean;
 };
 
 export interface ILoginPayload {

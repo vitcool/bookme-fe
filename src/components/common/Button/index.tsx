@@ -4,11 +4,10 @@ import { IProps } from './interfaces';
 
 import styles from './index.module.scss';
 
-const Button: FunctionComponent<IProps> = (props: IProps) => {
-  const { onClick, children, disabled, pending } = props;
+const Button: FunctionComponent<IProps> = ({ onClick, children, disabled, pending, type }: IProps) => {
 
   const handleClick = () => {
-    onClick();
+    onClick && onClick();
   };
 
   return (
@@ -17,6 +16,7 @@ const Button: FunctionComponent<IProps> = (props: IProps) => {
         onClick={handleClick}
         className={styles.button}
         disabled={disabled}
+        type={type}
       >
         <div className={styles.buttonContent}>
           <div className={styles.buttonChildren}>{children}</div>

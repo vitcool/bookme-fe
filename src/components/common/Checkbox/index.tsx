@@ -4,7 +4,7 @@ import { IProps } from './interfaces';
 
 import styles from './index.module.scss';
 
-const Input: FunctionComponent<IProps> = ({ value, onChange, label, type = 'text', touched, error, name }: IProps) => {
+const Input: FunctionComponent<IProps> = ({ checked, onChange, label, touched, error, name }: IProps) => {
 
   const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e);
@@ -13,9 +13,9 @@ const Input: FunctionComponent<IProps> = ({ value, onChange, label, type = 'text
   const showError = touched && error;
 
   return (
-    <div className={styles.input}>
+    <div className={styles.checkbox}>
       {label ? <label>{label}</label> : null}
-      <input className={showError ? styles.error : ''} name={name} value={value} type={type} onChange={handleValueChange} />
+      <input type="checkbox" name={name} checked={checked} onChange={handleValueChange}/>
       {showError ? <p className={styles.error}>{error}</p> : null}
     </div>
   );

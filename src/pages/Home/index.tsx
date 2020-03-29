@@ -5,7 +5,7 @@ const Home: FunctionComponent = () => {
   return (
     <HeaderWrapper>
       <div>
-        Please, login or sign up
+        HERE IS HOME PAGE
       </div>
     </HeaderWrapper>
   );

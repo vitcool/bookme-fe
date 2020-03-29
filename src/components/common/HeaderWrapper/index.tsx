@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { HOME, POSTS, ABOUT, LOGIN } from 'constants/routes';
+import { HOME, ABOUT, LOGIN } from 'constants/routes';
 
 import { LOGOUT_REQUEST } from 'redux/modules/auth/actions';
 import { getUserToken } from 'redux/modules/auth/selectors';
@@ -31,20 +31,13 @@ const HeaderWrapper: FunctionComponent<IProps> = (props: IProps) => {
         >
           Home
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to={LOGIN}
           className={styles.menuItem}
           activeClassName={styles.activeMenuItem}
         >
           Login
-        </NavLink>
-        <NavLink
-          to={POSTS}
-          className={styles.menuItem}
-          activeClassName={styles.activeMenuItem}
-        >
-          Posts
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to={ABOUT}
           className={styles.menuItem}
