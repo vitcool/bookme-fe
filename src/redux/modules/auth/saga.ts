@@ -4,7 +4,7 @@ import { takeEvery, call, put } from 'redux-saga/effects';
 import { postRequest, postRequestWithToken } from 'api';
 
 import history from 'helpers/history';
-import { HOME, LOGIN } from 'constants/routes';
+import { HOME, LOGIN, LIST_TASKS, CREATE_TASK } from 'constants/routes';
 
 import {
   LOGIN_REQUEST,
@@ -30,7 +30,10 @@ function* loginRequestWorker({
     const response: any = yield call(loginApiRequest, { email, password });
     if (response && response.ok) {
       const data = yield call([response, response.json]);
-      history.push(HOME);
+      const { user: { isTasker } } = data;
+      const redirectTo = isTasker ? LIST_TASKS : CREATE_TASK;
+      console.log('redirectTo', redirectTo);  
+      history.push(redirectTo);
       yield put(LOGIN_REQUEST_SUCCESS(data));
     } else {
       yield put(LOGIN_REQUEST_FAILED('Login is failed'));
