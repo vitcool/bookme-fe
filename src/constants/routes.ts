@@ -4,3 +4,4 @@ export const LOGIN = '/login';
 export const SIGN_UP = '/signup';
 export const LIST_TASKS = '/list-tasks';
 export const CREATE_TASK = '/create-task';
+export const TASK_DETAILS = '/task-details';

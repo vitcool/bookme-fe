@@ -11,6 +11,7 @@ import {
   SIGN_UP,
   LIST_TASKS,
   CREATE_TASK,
+  TASK_DETAILS,
 } from 'constants/routes';
 
 import { getUserToken, getIsUserTasker } from 'redux/modules/auth/selectors';
@@ -20,6 +21,7 @@ import About from 'pages/About';
 import Login from 'pages/Login';
 import SignUp from 'pages/Signup';
 import ListTasks from 'pages/ListTasks';
+import TaskDetails from 'pages/TaskDetails';
 
 const Routes = () => {
   const isAuth = !!useSelector(getUserToken);
@@ -34,14 +36,18 @@ const Routes = () => {
               {isAuth &&
                 (isUserTasker ? (
                   <Switch>
-                    <Route path={LIST_TASKS} component={ListTasks}/>
-                    <Route path={HOME} component={Home} exact/>
+                    <Route path={LIST_TASKS} component={ListTasks} />
+                    <Route path={`${TASK_DETAILS}/:id`} component={TaskDetails} />
+                    <Route path={ABOUT} component={About} exact />
+                    <Route path={HOME} component={Home} exact />
 
                     <Redirect to={LIST_TASKS} />
                   </Switch>
                 ) : (
                   <Switch>
-                    <Route path={CREATE_TASK} component={About}  />
+                    <Route path={CREATE_TASK} component={About} />
+                    <Route path={`${TASK_DETAILS}/:id`} component={TaskDetails} />
+                    <Route path={ABOUT} component={About} exact />
                     <Route path={HOME} component={Home} exact />
 
                     <Redirect to={LIST_TASKS} />

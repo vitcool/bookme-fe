@@ -18,6 +18,11 @@ a {
   display: flex;
 }
 
+.mainContentWrapper {
+  padding: 20px;
+  min-height: calc(100vh - 50px);
+}
+
 .menuItem {
   display: flex;
   justify-content: center;

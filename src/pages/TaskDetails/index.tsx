@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from 'react';
 
 import HeaderWrapper from 'components/common/HeaderWrapper';
-import ListTasksComponent from 'components/ListTasks';
+import TaskDetailsComponent from 'components/TaskDetails';
 
 
 const ListTasks: FunctionComponent = () => {
   return (
     <HeaderWrapper type="main">
-      <ListTasksComponent />
+      <TaskDetailsComponent />
     </HeaderWrapper>
   );
 };

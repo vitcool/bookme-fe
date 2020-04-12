@@ -6,7 +6,7 @@ import CreateTaskComponent from 'components/CreateTask';
 
 const CreateTask: FunctionComponent = () => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper type="main">
       <CreateTaskComponent />
     </HeaderWrapper>
   );
