@@ -2,13 +2,13 @@ import React, { FunctionComponent } from 'react';
 
 import SignUpForm from 'components/SignUpForm';
 
-import styles from './index.module.scss';
+import AuthWrapper from 'components/AuthWrapper';
 
 const SignUp: FunctionComponent = () => {
   return (
-    <div className={styles.wrapper}>
+    <AuthWrapper >
       <SignUpForm />
-    </div>
+    </AuthWrapper>
   );
 };
 

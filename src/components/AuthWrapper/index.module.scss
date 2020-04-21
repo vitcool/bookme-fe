@@ -1,0 +1,29 @@
+@import '../../assets/scss/variables';
+
+.wrapper {
+  padding: 10px;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: $varden;
+}
+
+.bubble {
+  left: -50px;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: -50px;
+  border-radius: 60px;
+  background: url('../../assets/images/login/bubble.svg');
+}
+
+.bottom {
+  background: url('../../assets/images/login/bottom.svg');
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 200px;
+}

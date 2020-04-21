@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
@@ -8,6 +8,9 @@ import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 import Error from 'components/common/Error';
 import Checkbox from 'components/common/Checkbox';
+import Logo from 'components/common/Logo';
+
+import { LOGIN } from 'constants/routes';
 
 import {
   getSignUpError,
@@ -16,8 +19,6 @@ import {
 import { SIGNUP_REQUEST, SIGNUP_DATA_RESET } from 'redux/modules/auth/actions';
 
 import styles from './index.module.scss';
-import { Link } from 'react-router-dom';
-import { LOGIN } from 'constants/routes';
 
 interface IForm {
   firstName: string;
@@ -94,8 +95,14 @@ const SignUpForm: FunctionComponent = () => {
 
           return (
             <Form>
+              <div className={styles.header}>
+                <Logo />
+                <p className={styles.signInText}>
+                  Please create a new account here
+                </p>
+              </div>
               <Input
-                label="First name"
+                placeholder="First name"
                 value={values.firstName}
                 onChange={handleChange}
                 error={firstNameError}
@@ -103,7 +110,7 @@ const SignUpForm: FunctionComponent = () => {
                 name={KEYS.FIRST_NAME}
               />
               <Input
-                label="Second name"
+                placeholder="Second name"
                 value={values.secondName}
                 onChange={handleChange}
                 error={secondNameError}
@@ -111,7 +118,7 @@ const SignUpForm: FunctionComponent = () => {
                 name={KEYS.SECOND_NAME}
               />
               <Input
-                label="Email"
+                placeholder="Email"
                 value={values.email}
                 onChange={handleChange}
                 error={emailError}
@@ -119,7 +126,7 @@ const SignUpForm: FunctionComponent = () => {
                 name={KEYS.EMAIL}
               />
               <Input
-                label="Password"
+                placeholder="Password"
                 type="password"
                 value={values.password}
                 onChange={handleChange}
@@ -133,6 +140,9 @@ const SignUpForm: FunctionComponent = () => {
                 onChange={handleChange}
                 name={KEYS.IS_TASKER}
               />
+              <div className={styles.gotoLoginText}>
+                Already have an account? <Link to={LOGIN}>Sign in</Link>
+              </div>
               <Button
                 type="submit"
                 disabled={isSignupPending}
@@ -141,9 +151,6 @@ const SignUpForm: FunctionComponent = () => {
                 Sign up
               </Button>
               {signupError && <Error text={'Please try again'} />}
-              <div className={styles.gotoLoginText}>
-                <Link to={LOGIN}>login</Link>
-              </div>
             </Form>
           );
         }}

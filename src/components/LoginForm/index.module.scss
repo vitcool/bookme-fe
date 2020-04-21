@@ -1,8 +1,10 @@
+@import '../../assets/scss/variables';
+
 .formWrapper {
   display: flex;
   flex-direction: column;
-  max-width: 250px;
   min-height: 300px;
+  width: 400px;
 }
 
 .formTitle {
@@ -13,7 +15,19 @@
 }
 
 .gotoSignupText {
-  margin-top: 20px;
+  margin: 20px 0;
   width: 100%;
+  text-align: right;
+
+  a {
+    color: $pizaz;
+    font-weight: bold;
+  }
+}
+
+.signInText {
+  margin-top: 20px;
+  margin-bottom: 10px;
   text-align: center;
+  color: $scorpion;
 }

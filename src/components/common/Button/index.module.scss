@@ -2,8 +2,8 @@
 
 .button {
   margin-top: 10px;
-  background-color: $denim;
-  border-radius: 10px;
+  background: linear-gradient(205.7deg, $amber 1.55%, $pizaz 95.8%);
+  border-radius: 30px;
   width: 100%;
   height: 30px;
   height: 50px;
@@ -12,7 +12,7 @@
   border: 1px solid $denim;
 
   &:hover {
-    background-color: $vista-white;
+    background: $vista-white;
     color: $denim;
     border: 1px solid $denim;
 

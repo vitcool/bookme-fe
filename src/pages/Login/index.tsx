@@ -2,14 +2,14 @@ import React, { FunctionComponent } from 'react';
 
 import LoginForm from 'components/LoginForm';
 
-import styles from './index.module.scss';
+import AuthWrapper from 'components/AuthWrapper';
 
 const Login: FunctionComponent = () => {
   return (
-    <div className={styles.wrapper}>
+    <AuthWrapper>
       <LoginForm />
-    </div>
-  )
+    </AuthWrapper>
+  );
 };
 
 export default Login;

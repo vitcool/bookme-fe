@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 import Error from 'components/common/Error';
+import Logo from 'components/common/Logo';
 
 import { getLoginError, getIsLoginPending } from 'redux/modules/auth/selectors';
 import { LOGIN_REQUEST, LOGIN_DATA_RESET } from 'redux/modules/auth/actions';
@@ -64,8 +65,14 @@ const LoginForm: FunctionComponent = () => {
 
           return (
             <Form>
+              <div className={styles.header}>
+                <Logo />
+                <p className={styles.signInText}>
+                  Sign in to your account to continue
+                </p>
+              </div>
               <Input
-                label="Email"
+                placeholder="Email"
                 value={values.email}
                 onChange={handleChange}
                 error={emailError}
@@ -73,7 +80,7 @@ const LoginForm: FunctionComponent = () => {
                 name={KEYS.EMAIL}
               />
               <Input
-                label="Password"
+                placeholder="Password"
                 type="password"
                 value={values.password}
                 onChange={handleChange}
@@ -81,21 +88,21 @@ const LoginForm: FunctionComponent = () => {
                 touched={passwordTouched}
                 name={KEYS.PASSWORD}
               />
+              <div className={styles.gotoSignupText}>
+                Don’t have an account? <Link to={SIGN_UP}>Sign up</Link>
+              </div>
               <Button
                 type="submit"
                 disabled={isLoginPending}
                 pending={isLoginPending}
               >
-                Log in
+                Sign in
               </Button>
               {loginError && (
                 <Error
                   text={'Login ar password is incorrect.Please try again'}
                 />
               )}
-              <div className={styles.gotoSignupText}>
-                <Link to={SIGN_UP}>sign up</Link>
-              </div>
             </Form>
           );
         }}

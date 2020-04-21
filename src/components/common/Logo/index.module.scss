@@ -1,0 +1,22 @@
+@import '../../../assets/scss/variables';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.textWrapper {
+  display: flex;
+  font-size: 28px;
+  align-items: center;
+
+  span {
+    font-size: 30px;
+    color: $amber;
+  }
+}
+
+.logo {
+  margin-left: 10px;
+  margin-top: -10px;
+}

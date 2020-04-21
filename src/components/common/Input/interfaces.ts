@@ -6,4 +6,5 @@ export interface IProps {
   touched?: boolean;
   error?: string;
   name: string;
+  placeholder?: string;
 }

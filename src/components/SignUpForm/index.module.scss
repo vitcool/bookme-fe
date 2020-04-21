@@ -1,5 +1,29 @@
+@import '../../assets/scss/variables';
+
+.formWrapper {
+  width: 400px;
+}
+
 .gotoLoginText {
-  margin-top: 20px;
+  margin: 30px 0;
   width: 100%;
+  text-align: right;
+}
+
+.gotoLoginText {
+  margin: 20px 0;
+  width: 100%;
+  text-align: right;
+
+  a {
+    color: $pizaz;
+    font-weight: bold;
+  }
+}
+
+.signInText {
+  margin-top: 20px;
+  margin-bottom: 10px;
   text-align: center;
+  color: $scorpion;
 }
