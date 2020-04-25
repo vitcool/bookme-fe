@@ -3,7 +3,7 @@ import HeaderWrapper from 'components/common/HeaderWrapper';
 
 const About: FunctionComponent = () => {
   return (
-    <HeaderWrapper type="main">
+    <HeaderWrapper>
       <div>
         About page
       </div>

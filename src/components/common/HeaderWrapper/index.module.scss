@@ -8,6 +8,7 @@ a {
 .menuWrapper {
   display: flex;
   height: 50px;
+  justify-content: space-between;
 }
 
 .pageContentWrapper {
@@ -18,16 +19,20 @@ a {
   display: flex;
 }
 
-.mainContentWrapper {
-  padding: 20px;
-  min-height: calc(100vh - 50px);
+.contentWrapper {
+  margin-top: 20px;
+  min-height: calc(100vh - 70px);
 }
 
 .menuItem {
+  background: $gradient;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 20px;
+  cursor: pointer;
 
   &:hover {
     color: $denim;
@@ -37,4 +42,30 @@ a {
 .activeMenuItem {
   font-weight: bold;
   text-decoration: underline;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    height: 2px;
+    bottom: 10px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 77%;
+    background: $gradient;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+}
+
+.menuGroup {
+  display: flex;
+}
+
+.logoWrapper {
+  margin-top: 15px;
 }

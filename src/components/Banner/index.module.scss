@@ -1,0 +1,58 @@
+@import '../../assets/scss/variables';
+
+.wrapper {
+  width: 100vw;
+  background: $gradient;
+}
+
+.text {
+  font-size: 44px;
+  font-weight: bold;
+  color: $varden;
+  max-width: 50%;
+  line-height: 70px;
+}
+
+.contentWrapper {
+  padding: 20px 0;
+
+  img {
+    max-width: 50%;
+    margin-top: -20px;
+  }
+}
+
+.imageWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 30px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (max-width: $to-mobile-width) {
+    width: 100%;
+  }
+
+  @media (min-width: $tablet-width) {
+    max-width: 750px;
+    width: 100%;
+  }
+
+  @media (min-width: $laptop-width) {
+    max-width: 970px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 1170px;
+  }
+}
+
+.subText {
+  font-size: 18px;
+  color: $varden;
+}
+
+.header {
+  display: flex;
+}

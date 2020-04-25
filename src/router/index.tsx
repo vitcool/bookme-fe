@@ -1,71 +1,16 @@
-import React from 'react';
-import { Switch, Router, Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { FunctionComponent } from 'react';
+import { Switch, Router, Route } from 'react-router-dom';
 
 import history from 'helpers/history';
 
-import {
-  HOME,
-  ABOUT,
-  LOGIN,
-  SIGN_UP,
-  LIST_TASKS,
-  CREATE_TASK,
-  TASK_DETAILS,
-} from 'constants/routes';
+import MainRouter from './main';
 
-import { getUserToken, getIsUserTasker } from 'redux/modules/auth/selectors';
-
-import Home from 'pages/Home';
-import About from 'pages/About';
-import Login from 'pages/Login';
-import SignUp from 'pages/Signup';
-import ListTasks from 'pages/ListTasks';
-import TaskDetails from 'pages/TaskDetails';
-
-const Routes = () => {
-  const isAuth = !!useSelector(getUserToken);
-  const isUserTasker = useSelector(getIsUserTasker);
-
-  return (
-    <Router history={history}>
-      <Switch>
-        <Route
-          render={() => (
-            <Switch>
-              {isAuth &&
-                (isUserTasker ? (
-                  <Switch>
-                    <Route path={LIST_TASKS} component={ListTasks} />
-                    <Route path={`${TASK_DETAILS}/:id`} component={TaskDetails} />
-                    <Route path={ABOUT} component={About} exact />
-                    <Route path={HOME} component={Home} exact />
-
-                    <Redirect to={LIST_TASKS} />
-                  </Switch>
-                ) : (
-                  <Switch>
-                    <Route path={CREATE_TASK} component={About} />
-                    <Route path={`${TASK_DETAILS}/:id`} component={TaskDetails} />
-                    <Route path={ABOUT} component={About} exact />
-                    <Route path={HOME} component={Home} exact />
-
-                    <Redirect to={LIST_TASKS} />
-                  </Switch>
-                ))}
-              {!isAuth && (
-                <Switch>
-                  <Route path={LOGIN} component={Login} />
-                  <Route path={SIGN_UP} component={SignUp} />
-                  <Redirect to={LOGIN} />
-                </Switch>
-              )}
-            </Switch>
-          )}
-        />
-      </Switch>
-    </Router>
-  );
-};
+const Routes: FunctionComponent = () => (
+  <Router history={history}>
+    <Switch>
+      <Route render={(props) => <MainRouter {...props} />} />
+    </Switch>
+  </Router>
+);
 
 export default Routes;

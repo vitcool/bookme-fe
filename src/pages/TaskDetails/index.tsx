@@ -6,7 +6,7 @@ import TaskDetailsComponent from 'components/TaskDetails';
 
 const ListTasks: FunctionComponent = () => {
   return (
-    <HeaderWrapper type="main">
+    <HeaderWrapper>
       <TaskDetailsComponent />
     </HeaderWrapper>
   );

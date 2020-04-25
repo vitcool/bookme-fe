@@ -1,0 +1,25 @@
+@import '../../../assets/scss/variables';
+
+.wrapper {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (max-width: $to-mobile-width) {
+    width: 100%;
+  }
+
+  @media (min-width: $tablet-width) {
+    max-width: 750px;
+    width: 100%;
+  }
+
+  @media (min-width: $laptop-width) {
+    max-width: 970px;
+  }
+
+  @media (min-width: $desktop-width) {
+    max-width: 1170px;
+  }
+}
